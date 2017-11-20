@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gcc ~/Documents/MacOSX\ Platform\ Layer/src/macosx_platform.cpp -o ~/Documents/MacOSX\ Platform\ Layer/build/macosx_platform -framework OpenGL -lglfw -Wall
+gcc ~/Documents/MacOSX\ Platform\ Layer/src/macosx_platform.cpp ~/Documents/MacOSX\ Platform\ Layer/src/glad.c -o ~/Documents/MacOSX\ Platform\ Layer/build/macosx_platform -framework OpenGL -lglfw -lstdc++ -Wall -ggdb
