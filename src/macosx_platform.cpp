@@ -112,7 +112,7 @@ int main(int argc, char **argv)
 				// load and generate the texture
 				int width, height, nrChannels;
 				stbi_set_flip_vertically_on_load(true);
-				unsigned char *data = stbi_load("../textures/Charles.jpg", &width, &height, &nrChannels, 0);
+				unsigned char *data = stbi_load("../textures/wall.jpg", &width, &height, &nrChannels, 0);
 				if(data)
 				{
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -123,6 +123,17 @@ int main(int argc, char **argv)
 					std::cout << "Failed to load texture" << std::endl;
 				}
 				stbi_image_free(data);
+
+				// GLM: maths tests
+				// ----------------
+				glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
+				glm::mat4 trans = glm::mat4(1.0f);
+
+				trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 0.0f));
+
+				vec = trans * vec;
+
+				std::cout << vec.x << vec.y << vec.z << std::endl;
 
 				// render loop
 				// -----------
